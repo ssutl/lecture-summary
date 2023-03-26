@@ -79,7 +79,6 @@ export default function landing() {
           const parsedArray = JSON.parse(existingArray);
 
           const newArray = [...parsedArray, ...responses];
-          console.log("newArray", newArray);
           // Do something with the parsed array
           sessionStorage.setItem("logged_summaries", JSON.stringify(newArray));
         } else {

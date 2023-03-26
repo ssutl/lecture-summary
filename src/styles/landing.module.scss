@@ -144,12 +144,13 @@
         height: 35%;
         width: 100%;
         display: flex;
-        justify-content: space-between;
         align-items: center;
         flex-direction: column;
+        justify-content: space-evenly;
         // background-color: orange;
 
         @include breakpoint-mixin("laptop-small") {
+          justify-content: space-between;
           flex-direction: row;
           align-items: flex-start;
         }

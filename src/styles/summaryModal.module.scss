@@ -15,12 +15,16 @@
 
   .modal {
     height: 80%;
-    width: 80%;
+    width: 95%;
     display: flex;
     background-color: #191919;
     border-radius: 5px;
     align-items: center;
     justify-content: center;
+
+    @include breakpoint-mixin("laptop-small") {
+      width: 80%;
+    }
 
     .modalWidthContainer {
       height: 90%;
@@ -34,8 +38,16 @@
       }
 
       div {
-        margin-bottom: 40px;
+        margin-bottom: 50px;
         position: relative;
+
+        #copyIcon {
+          position: absolute;
+          display: inline-block;
+          top: 0px;
+          right: 30px;
+          cursor: pointer;
+        }
 
         h1 {
           margin-bottom: 20px;
