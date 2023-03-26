@@ -23,7 +23,7 @@
       right: 7.5%;
       cursor: pointer;
       border-radius: 5px;
-      background-color: #34aff5;
+      background-color: #6ca6c1;
       box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
         rgba(0, 0, 0, 0.22) 0px 10px 10px;
       padding: 3px;
@@ -57,7 +57,7 @@
         // background-color: orange;
 
         span {
-          color: #34aff5;
+          color: #6ca6c1;
         }
 
         @include breakpoint-mixin("laptop-small") {
@@ -72,7 +72,7 @@
       width: 100%;
       display: flex;
       flex-direction: column;
-      // background-color: #34aff5;
+      // background-color: #6CA6C1;
 
       @include breakpoint-mixin("laptop-small") {
         flex: 1;
@@ -102,7 +102,7 @@
         .inputHolder {
           height: 65px;
           width: 100%;
-          background-color: #34aff5;
+          background-color: #6ca6c1;
           border-radius: 5px;
           display: flex;
           justify-content: space-between;
@@ -111,6 +111,11 @@
           box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
             rgba(0, 0, 0, 0.22) 0px 10px 10px;
           margin-bottom: 20px;
+          transition: all ease-in 0.5s;
+
+          &:hover {
+            transform: scale(1.05);
+          }
 
           @include breakpoint-mixin("laptop-small") {
             // margin-bottom: 0px;
@@ -169,7 +174,7 @@
         .typeButton {
           height: 65px;
           width: 100%;
-          background-color: #34aff5;
+          background-color: #6ca6c1;
           box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
             rgba(0, 0, 0, 0.22) 0px 10px 10px;
           border-radius: 5px;
@@ -179,6 +184,11 @@
           align-items: center;
           justify-content: center;
           margin-bottom: 30px;
+          transition: all ease-in 0.5s;
+
+          &:hover {
+            transform: scale(1.05);
+          }
 
           @include breakpoint-mixin("laptop-small") {
             width: 70%;
@@ -224,7 +234,7 @@
         }
         .generateButton {
           padding: 0px 20px 0px 20px;
-          background-color: #34aff5;
+          background-color: #6ca6c1;
           box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
             rgba(0, 0, 0, 0.22) 0px 10px 10px;
           border-radius: 5px;
@@ -234,9 +244,12 @@
           justify-content: center;
           height: 50px;
           cursor: pointer;
+          transition: all ease-in 0.5s;
 
           &:hover {
             opacity: 0.6;
+            transform: scale(1.05);
+
             // background-color: #263341;
           }
 
@@ -260,7 +273,7 @@
           rgba(0, 0, 0, 0.22) 0px 10px 10px;
 
         padding: 0px 20px 0px 20px;
-        background-color: #34aff5;
+        background-color: #6ca6c1;
         border-radius: 5px;
         color: white;
         display: flex;

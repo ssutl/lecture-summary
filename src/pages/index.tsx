@@ -9,7 +9,7 @@ import "react-notifications-component/dist/theme.css";
 import { ReactNotifications } from "react-notifications-component";
 import MoonLoader from "react-spinners/MoonLoader";
 import notify from "@/helpers/notification";
-import SummaryModal from "../Components/SummaryModal";
+import SummaryModal from "../Components/summaryModal";
 import HistoryIcon from "@mui/icons-material/History";
 
 export default function landing() {
@@ -95,6 +95,8 @@ export default function landing() {
         setLoading(false);
         notify("failure");
       }
+    } else {
+      alert("You need to enter a value");
     }
   };
 
@@ -258,109 +260,3 @@ export default function landing() {
     </>
   );
 }
-
-const filler = (
-  <>
-    <div>
-      <h1>0</h1>
-      <p>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat earum
-        unde nesciunt enim quo vel, molestias nam perspiciatis, itaque tempora
-        sequi odio cum officiis, qui at minus sed nisi iure! Lorem, ipsum dolor
-        sit amet consectetur adipisicing elit. Repellat earum unde nesciunt enim
-        quo vel, molestias nam perspiciatis, itaque tempora sequi odio cum
-        officiis, qui at minus sed nisi iure! Lorem, ipsum dolor sit amet
-        consectetur adipisicing elit. Repellat earum unde nesciunt enim quo vel,
-        molestias nam perspiciatis, itaque tempora sequi odio cum officiis, qui
-        at minus sed nisi iure! Lorem, ipsum dolor sit amet consectetur
-        adipisicing elit. Repellat earum unde nesciunt enim quo vel, molestias
-        nam perspiciatis, itaque tempora sequi odio cum officiis, qui at minus
-        sed nisi iure! Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-        Repellat earum unde nesciunt enim quo vel, molestias nam perspiciatis,
-        itaque tempora sequi odio cum officiis, qui at minus sed nisi iure!
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat earum
-        unde nesciunt enim quo vel, molestias nam perspiciatis, itaque tempora
-        sequi odio cum officiis, qui at minus sed nisi iure! Lorem, ipsum dolor
-        sit amet consectetur adipisicing elit. Repellat earum unde nesciunt enim
-        quo vel, molestias nam perspiciatis, itaque tempora sequi odio cum
-        officiis, qui at minus sed nisi iure! Lorem, ipsum dolor sit amet
-        consectetur adipisicing elit. Repellat earum unde nesciunt enim quo vel,
-        molestias nam perspiciatis, itaque tempora sequi odio cum officiis, qui
-        at minus sed nisi iure! Lorem, ipsum dolor sit amet consectetur
-        adipisicing elit. Repellat earum unde nesciunt enim quo vel, molestias
-        nam perspiciatis, itaque tempora sequi odio cum officiis, qui at minus
-        sed nisi iure! Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-        Repellat earum unde nesciunt enim quo vel, molestias nam perspiciatis,
-        itaque tempora sequi odio cum officiis, qui at minus sed nisi iure!
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat earum
-        unde nesciunt enim quo vel, molestias nam perspiciatis, itaque tempora
-        sequi odio cum officiis, qui at minus sed nisi iure! Lorem, ipsum dolor
-        sit amet consectetur adipisicing elit. Repellat earum unde nesciunt enim
-        quo vel, molestias nam perspiciatis, itaque tempora sequi odio cum
-        officiis, qui at minus sed nisi iure!
-      </p>
-    </div>
-    <div>
-      <h1>1</h1>
-      <p>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat earum
-        unde nesciunt enim quo vel, molestias nam perspiciatis, itaque tempora
-        sequi odio cum officiis, qui at minus sed nisi iure! Lorem, ipsum dolor
-        sit amet consectetur adipisicing elit. Repellat earum unde nesciunt enim
-        quo vel, molestias nam perspiciatis, itaque tempora sequi odio cum
-        officiis, qui at minus sed nisi iure! Lorem, ipsum dolor sit amet
-        consectetur adipisicing elit. Repellat earum unde nesciunt enim quo vel,
-        molestias nam perspiciatis, itaque tempora sequi odio cum officiis, qui
-        at minus sed nisi iure! Lorem, ipsum dolor sit amet consectetur
-        adipisicing elit. Repellat earum unde nesciunt enim quo vel, molestias
-        nam perspiciatis, itaque tempora sequi odio cum officiis, qui at minus
-        sed nisi iure! Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-        Repellat earum unde nesciunt enim quo vel, molestias nam perspiciatis,
-        itaque tempora sequi odio cum officiis, qui at minus sed nisi iure!
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat earum
-        unde nesciunt enim quo vel, molestias nam perspiciatis, itaque tempora
-        sequi odio cum officiis, qui at minus sed nisi iure! Lorem, ipsum dolor
-        sit amet consectetur adipisicing elit. Repellat earum unde nesciunt enim
-        quo vel, molestias nam perspiciatis, itaque tempora sequi odio cum
-        officiis, qui at minus sed nisi iure! Lorem, ipsum dolor sit amet
-        consectetur adipisicing elit. Repellat earum unde nesciunt enim quo vel,
-        molestias nam perspiciatis, itaque tempora sequi odio cum officiis, qui
-        at minus sed nisi iure! Lorem, ipsum dolor sit amet consectetur
-        adipisicing elit. Repellat earum unde nesciunt enim quo vel, molestias
-        nam perspiciatis, itaque tempora sequi odio cum officiis, qui at minus
-        sed nisi iure!
-      </p>
-    </div>
-    <div>
-      <h1>2</h1>
-      <p>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat earum
-        unde nesciunt enim quo vel, molestias nam perspiciatis, itaque tempora
-        sequi odio cum officiis, qui at minus sed nisi iure! Lorem, ipsum dolor
-        sit amet consectetur adipisicing elit. Repellat earum unde nesciunt enim
-        quo vel, molestias nam perspiciatis, itaque tempora sequi odio cum
-        officiis, qui at minus sed nisi iure! Lorem, ipsum dolor sit amet
-        consectetur adipisicing elit. Repellat earum unde nesciunt enim quo vel,
-        molestias nam perspiciatis, itaque tempora sequi odio cum officiis, qui
-        at minus sed nisi iure! Lorem, ipsum dolor sit amet consectetur
-        adipisicing elit. Repellat earum unde nesciunt enim quo vel, molestias
-        nam perspiciatis, itaque tempora sequi odio cum officiis, qui at minus
-        sed nisi iure! Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-        Repellat earum unde nesciunt enim quo vel, molestias nam perspiciatis,
-        itaque tempora sequi odio cum officiis, qui at minus sed nisi iure!
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat earum
-        unde nesciunt enim quo vel, molestias nam perspiciatis, itaque tempora
-        sequi odio cum officiis, qui at minus sed nisi iure! Lorem, ipsum dolor
-        sit amet consectetur adipisicing elit. Repellat earum unde nesciunt enim
-        quo vel, molestias nam perspiciatis, itaque tempora sequi odio cum
-        officiis, qui at minus sed nisi iure! Lorem, ipsum dolor sit amet
-        consectetur adipisicing elit. Repellat earum unde nesciunt enim quo vel,
-        molestias nam perspiciatis, itaque tempora sequi odio cum officiis, qui
-        at minus sed nisi iure! Lorem, ipsum dolor sit amet consectetur
-        adipisicing elit. Repellat earum unde nesciunt enim quo vel, molestias
-        nam perspiciatis, itaque tempora sequi odio cum officiis, qui at minus
-        sed nisi iure!
-      </p>
-    </div>
-  </>
-);
