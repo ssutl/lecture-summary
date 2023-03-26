@@ -11,12 +11,18 @@ interface RequestBody {
   detail: "short" | "medium" | "in-depth";
 }
 
+export interface summaryArrayType {
+  title: number;
+  summary: string | undefined;
+}
+
 export default function handler(
   req: { body: RequestBody },
   res: NextApiResponse
 ) {
   //Recieve URLS on the server string[]
   const { urls, detail } = req.body;
+  console.log("urls", urls);
 
   //Map over urls
 
@@ -60,11 +66,11 @@ export default function handler(
 
       const summaryResults = await Promise.all(summaryPromises);
 
-      const summaryArray = summaryResults.map((eachResult) => {
-        return { title: eachResult.title, summary: eachResult.summary };
-      });
-
-      console.log(summaryArray);
+      const summaryArray: summaryArrayType[] = summaryResults.map(
+        (eachResult) => {
+          return { title: eachResult.title, summary: eachResult.summary };
+        }
+      );
 
       //We need to summarise each transcript
 
@@ -76,10 +82,4 @@ export default function handler(
   }
 
   downloadFiles();
-
-  //Pass each transcription into summary function
-
-  //Pass each into transcribe function
-
-  //Download each as mp3
 }

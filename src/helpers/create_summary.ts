@@ -29,6 +29,7 @@ export default async function create_transcript(
   text: string,
   detail: "short" | "medium" | "in-depth"
 ) {
+  console.log("secondD", detail);
   const payload = {
     model: "gpt-3.5-turbo",
     messages: [
@@ -36,10 +37,10 @@ export default async function create_transcript(
         role: "user",
         content: `Summarise this transcript: ${text}. Make the summary ${
           detail === "short"
-            ? `short & concise`
+            ? `short & concise (approximately 100 words)`
             : detail === "medium"
-            ? `medium length, not too in-depth, just focusing on key details`
-            : `in-depth, expanding upon key details and in-depthish`
+            ? `medium length, not too in-depth, just focusing on key details (aproximately 250 to 300 words)`
+            : `in-depth, expanding upon key details (approximately 450 to a maximum of 600 words)`
         }`,
       },
     ],
@@ -47,7 +48,7 @@ export default async function create_transcript(
     top_p: 1,
     frequency_penalty: 0,
     presence_penalty: 0,
-    max_tokens: 200,
+    max_tokens: 600,
     n: 1,
   };
 
