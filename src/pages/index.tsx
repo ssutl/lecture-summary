@@ -12,7 +12,7 @@ import notify from "@/helpers/notification";
 import SummaryModal from "../Components/summaryModal";
 import HistoryIcon from "@mui/icons-material/History";
 
-export default function landing() {
+export default function Landing() {
   const [inputsAmount, setInputAmount] = useState(1);
   const [type, setType] = useState<"short" | "medium" | "in-depth">("short");
   const [inputValues, setInputValues] = useState<string[]>([]);
