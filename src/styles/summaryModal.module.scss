@@ -1,6 +1,72 @@
-@import "../Styling/Breakpoints.scss";
+@import "../styles/Breakpoints.scss";
 
-.summaryModalOverlay {
-  height: 100%;
+.modalOverlay {
+  z-index: 999;
+  height: 100vh;
   width: 100%;
+  position: fixed;
+  top: 0;
+  right: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  backdrop-filter: blur(3px) brightness(0.3);
+
+  .modal {
+    height: 80%;
+    width: 80%;
+    display: flex;
+    background-color: #191919;
+    border-radius: 5px;
+    align-items: center;
+    justify-content: center;
+
+    .modalWidthContainer {
+      height: 90%;
+      width: 90%;
+      display: flex;
+      flex-direction: column;
+      overflow-y: scroll;
+
+      h1 {
+        margin-bottom: 40px;
+      }
+
+      div {
+        margin-bottom: 40px;
+        position: relative;
+
+        h1 {
+          margin-bottom: 20px;
+        }
+
+        p {
+          font-size: 19px;
+          line-height: 28px;
+
+          @include breakpoint-mixin("laptop-small") {
+            font-size: 20px;
+          }
+        }
+      }
+    }
+
+    .modalWidthContainer::-webkit-scrollbar {
+      height: 100%;
+      width: 12px;
+    }
+
+    .modalWidthContainer::-webkit-scrollbar-thumb {
+      background-color: rgba(70, 68, 68, 0.428);
+      border: 1px solid transparent;
+      background-clip: content-box;
+      border-radius: 10px;
+      height: 130px;
+    }
+
+    @include breakpoint-mixin("laptop-small") {
+      width: 50%;
+    }
+  }
 }
