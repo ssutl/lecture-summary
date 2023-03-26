@@ -1,8 +1,6 @@
 # Lecture-summary (UOM Hackerthon)
 This was my project for manchester hack-a-bot 2023, which I ended up winning my project challenge for. Humbly, Subtly. The code is designed to summarise a video provided via a URL, specifically blackboard lectures. Students will be able to summarise lectures in different levels of detail using AI, which can greatly increase workflow and reduce risk of time wasted watching a lecture that contains information already learnt. 
 
-![image](https://user-images.githubusercontent.com/76885270/227787156-5291b840-56ad-452c-90ea-3446c8602525.png)
-
 # Technologies Used
 ### Frontend
 1. Next.js
