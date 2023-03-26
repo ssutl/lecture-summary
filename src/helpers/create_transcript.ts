@@ -18,12 +18,6 @@ export default async function create_transcript(i: number) {
   formData.append("model", model);
   formData.append("file", fs.createReadStream(filePath));
 
-  if (fs.existsSync(filePath)) {
-    console.log("file exists");
-  } else {
-    console.log("file not found!");
-  }
-
   try {
     const response: ChatCompletion = await axios({
       method: "POST",

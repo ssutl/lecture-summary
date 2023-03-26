@@ -5,6 +5,7 @@ import fs from "fs";
 import stream from "stream";
 import create_transcript from "@/helpers/create_transcript";
 import create_summary from "@/helpers/create_summary";
+import { Console } from "console";
 
 interface RequestBody {
   urls: string[];
@@ -22,7 +23,6 @@ export default function handler(
 ) {
   //Recieve URLS on the server string[]
   const { urls, detail } = req.body;
-  console.log("urls", urls);
 
   //Map over urls
 
@@ -39,7 +39,6 @@ export default function handler(
       //Pass each video into the transcript converter
       const transcriptPromises = urls.map(async (eachVideo, i) => {
         const transcript = await create_transcript(i); // call function to generate transcript
-        console.log("transcript", transcript);
 
         const title = i; //give video a title
 
@@ -48,16 +47,17 @@ export default function handler(
 
       const transcriptResults = await Promise.all(transcriptPromises); // wait for all transcripts to be generated
 
-      const transcriptArray = transcriptResults.map((eachResult) => {
-        return { title: eachResult.title, transcript: eachResult.transcript };
-      });
+      const transcriptArray = transcriptResults
+        .map((eachResult) => {
+          return { title: eachResult.title, transcript: eachResult.transcript };
+        })
+        .filter((eachObject) => eachObject.transcript !== undefined);
 
       const summaryPromises = transcriptArray.map(async (eachTranscript, i) => {
         const summary = await create_summary(
           eachTranscript.transcript!,
           detail
         ); // call function to generate transcript
-        console.log("summary", summary);
 
         const title = i; //give video a title
 

@@ -64,6 +64,10 @@
           width: 50%;
           height: 100%;
         }
+        p {
+          margin-top: 20px;
+          cursor: pointer;
+        }
 
         .inputHolder {
           height: 65px;
@@ -96,6 +100,12 @@
           .icon {
             cursor: pointer;
             margin-right: 15px;
+            border-radius: 5px;
+
+            &:hover {
+              opacity: 0.6;
+              background-color: #263341;
+            }
           }
 
           input::placeholder {

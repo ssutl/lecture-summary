@@ -110,13 +110,13 @@ export default function landing() {
                   ) : null}
                 </div>
               ))}
-            </div>
-            <div className={styles.generateHalf}>
               {summaries.length && !displaySummaries ? (
                 <p onClick={() => setDisplaySummaries(true)}>
                   Display Previous Summaries
                 </p>
               ) : null}
+            </div>
+            <div className={styles.generateHalf}>
               <div className={styles.typeButton}>
                 <div className={styles.typeDescription}>Detail</div>
                 <div className={styles.typeOptions}>
@@ -166,7 +166,6 @@ export default function landing() {
                       const selectedOption = (e.target as HTMLElement)
                         .innerHTML;
                       const selectedType = selectedOption.toLocaleLowerCase();
-                      console.log("selectedType", selectedType);
                       if (
                         selectedType === "short" ||
                         selectedType === "medium" ||

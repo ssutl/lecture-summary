@@ -29,7 +29,6 @@ export default async function create_transcript(
   text: string,
   detail: "short" | "medium" | "in-depth"
 ) {
-  console.log("secondD", detail);
   const payload = {
     model: "gpt-3.5-turbo",
     messages: [
