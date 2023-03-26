@@ -34,12 +34,12 @@ export default async function create_transcript(
     messages: [
       {
         role: "user",
-        content: `Summarise this transcript: ${text}. Make the summary ${
+        content: `return the title (the main topic of the transcript or stated title) and summary of the transcript like this as a response: "1) insert title here 2) summary:insert summary here". For the summary, summarise this transcript: ${text}. Make the summary ${
           detail === "short"
             ? `short & concise (approximately 100 words)`
             : detail === "medium"
             ? `medium length, not too in-depth, just focusing on key details (aproximately 250 to 300 words)`
-            : `in-depth, expanding upon key details (approximately 450 to a maximum of 600 words)`
+            : `in-depth, expanding upon key details (approximately 400 to a maximum of 550 words)`
         }`,
       },
     ],
@@ -62,6 +62,7 @@ export default async function create_transcript(
       data: JSON.stringify(payload),
     });
     const data = await response.data.choices[0].message.content;
+    console.log("data", data);
     return data;
   } catch (error) {
     console.log("error", error);

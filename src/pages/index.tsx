@@ -119,7 +119,7 @@ export default function landing() {
         <div className={styles.widthContainer}>
           <HistoryIcon
             id={styles.HistoryIcon}
-            onClick={() => setDisplayModal(!displayModal)}
+            onClick={() => setDisplayModal(true)}
           />
           <div className={styles.section1}>
             <h1>Transform lectures into bite-sized summaries</h1>
@@ -254,7 +254,7 @@ export default function landing() {
           )}
         </div>
       </div>
-      {displayModal ? <SummaryModal close={closeModal} /> : null}
+      {displayModal ? <SummaryModal modalToggle={closeModal} /> : null}
     </>
   );
 }

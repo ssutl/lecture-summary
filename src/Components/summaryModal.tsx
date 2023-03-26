@@ -5,9 +5,9 @@ import ContentCopy from "@mui/icons-material/ContentCopy";
 import notify from "@/helpers/notification";
 
 type SummaryModalProps = {
-  close: () => void;
+  modalToggle: () => void;
 };
-const SummaryModal = ({ close }: SummaryModalProps) => {
+const SummaryModal = ({ modalToggle }: SummaryModalProps) => {
   const [sessionSummaries, setSessionSummaries] = useState<summaryArrayType[]>(
     []
   );
@@ -30,28 +30,30 @@ const SummaryModal = ({ close }: SummaryModalProps) => {
   }
 
   return (
-    <div
-      className={styles.modalOverlay}
-      onClick={() => {
-        close();
-      }}
-    >
-      <div className={styles.modal}>
+    <div className={styles.modalOverlay} onClick={() => modalToggle()}>
+      <div
+        className={styles.modal}
+        onClick={(e) => {
+          e.stopPropagation();
+          e.preventDefault();
+        }}
+      >
         {sessionSummaries.length === 0 ? (
           <p>No summaries this session</p>
         ) : null}
         <div className={styles.modalWidthContainer}>
-          <h1>Session transcripts</h1>
-          {sessionSummaries.map((eachSummary, index) => (
-            <div>
-              <ContentCopy
-                id={styles.copyIcon}
-                onClick={() => handleCopyClick(index)}
-              />
-              <h1>{eachSummary.title}</h1>
-              <p>{eachSummary.summary}</p>
-            </div>
-          ))}
+          <h1 id={styles.titlo}>Session transcripts</h1>
+          {Array.from(sessionSummaries) &&
+            sessionSummaries.map((eachSummary, index) => (
+              <div id={`${styles.content}-${index}`} key={index}>
+                <ContentCopy
+                  id={styles.copyIcon}
+                  onClick={() => handleCopyClick(index)}
+                />
+                <h1>{eachSummary.title}</h1>
+                <p>{eachSummary.summary}</p>
+              </div>
+            ))}
         </div>
       </div>
     </div>

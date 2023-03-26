@@ -13,7 +13,7 @@ interface RequestBody {
 }
 
 export interface summaryArrayType {
-  title: number;
+  title: string | undefined;
   summary: string | undefined;
 }
 
@@ -40,7 +40,7 @@ export default function handler(
       const transcriptPromises = urls.map(async (eachVideo, i) => {
         const transcript = await create_transcript(i); // call function to generate transcript
 
-        const title = i; //give video a title
+        const title = `placeholder`; //give video a title
 
         return { title, transcript }; // return object with video title and transcript
       });
@@ -51,26 +51,49 @@ export default function handler(
         .map((eachResult) => {
           return { title: eachResult.title, transcript: eachResult.transcript };
         })
-        .filter((eachObject) => eachObject.transcript !== undefined);
+        .filter(
+          (eachObject) =>
+            eachObject.transcript !== undefined &&
+            eachObject.title !== undefined
+        );
 
       const summaryPromises = transcriptArray.map(async (eachTranscript, i) => {
-        const summary = await create_summary(
+        const AIResponse = await create_summary(
           eachTranscript.transcript!,
           detail
         ); // call function to generate transcript
 
-        const title = i; //give video a title
+        console.log("Response", AIResponse);
 
-        return { title, summary }; // return object with video title and transcript
+        if (AIResponse) {
+          // Find the index of the "Title" section using a regular expression
+
+          // Find the index of the "Title" section
+          let titleStart = AIResponse.indexOf("1)") + 3;
+          let titleEnd = AIResponse.indexOf("2)");
+          let title = AIResponse.substring(titleStart, titleEnd);
+
+          let summaryStart = AIResponse.indexOf("2)") + 3;
+          let summaryEnd = AIResponse.length;
+          let summary = AIResponse.substring(summaryStart, summaryEnd);
+
+          return { title, summary }; // return object with video title and transcript
+        } else {
+          return { title: undefined, summary: undefined };
+        }
       });
 
       const summaryResults = await Promise.all(summaryPromises);
 
-      const summaryArray: summaryArrayType[] = summaryResults.map(
-        (eachResult) => {
+      const summaryArray: summaryArrayType[] = summaryResults
+        .map((eachResult) => {
           return { title: eachResult.title, summary: eachResult.summary };
-        }
-      );
+        })
+        .filter(
+          (eachSummarised) =>
+            eachSummarised.title !== undefined &&
+            eachSummarised.summary !== undefined
+        );
 
       //We need to summarise each transcript
 
