@@ -8,7 +8,7 @@ import create_summary from "@/helpers/create_summary";
 
 interface RequestBody {
   urls: string[];
-  detail: "short" | "medium" | "long";
+  detail: "short" | "medium" | "in-depth";
 }
 
 export default function handler(

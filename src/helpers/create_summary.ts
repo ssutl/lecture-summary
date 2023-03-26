@@ -27,7 +27,7 @@ export interface ChatCompletion {
 
 export default async function create_transcript(
   text: string,
-  detail: "short" | "medium" | "long"
+  detail: "short" | "medium" | "in-depth"
 ) {
   const payload = {
     model: "gpt-3.5-turbo",
@@ -38,8 +38,8 @@ export default async function create_transcript(
           detail === "short"
             ? `short & concise`
             : detail === "medium"
-            ? `medium length, not too long, just focusing on key details`
-            : `in-depth, expanding upon key details and longish`
+            ? `medium length, not too in-depth, just focusing on key details`
+            : `in-depth, expanding upon key details and in-depthish`
         }`,
       },
     ],
