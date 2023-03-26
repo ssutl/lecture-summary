@@ -215,6 +215,10 @@
       height: fit-content;
       // background-color: orange;
 
+      p {
+        margin-bottom: 40px;
+      }
+
       .backHomeButton {
         box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
           rgba(0, 0, 0, 0.22) 0px 10px 10px;
@@ -229,7 +233,6 @@
         height: 50px;
         cursor: pointer;
         width: fit-content;
-        margin-bottom: 40px;
 
         &:hover {
           opacity: 0.6;

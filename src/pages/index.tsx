@@ -7,8 +7,8 @@ import { summaryArrayType } from "./api/summary";
 import ContentCopy from "@mui/icons-material/ContentCopy";
 import "react-notifications-component/dist/theme.css";
 import { ReactNotifications } from "react-notifications-component";
-import { Store } from "react-notifications-component";
 import MoonLoader from "react-spinners/MoonLoader";
+import notify from "@/helpers/notification";
 
 export default function landing() {
   const [inputsAmount, setInputAmount] = useState(1);
@@ -16,6 +16,8 @@ export default function landing() {
   const [inputValues, setInputValues] = useState<string[]>([]);
   const [summaries, setSummaries] = useState<summaryArrayType[]>([]);
   const [displaySummaries, setDisplaySummaries] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [elapsedTime, setElapsedTime] = useState<number | undefined>(undefined);
 
   useEffect(() => {
     //Whenever summaries updates we want to display it
@@ -45,11 +47,26 @@ export default function landing() {
       .filter((value) => value !== "");
 
     if (values.length) {
+      setLoading(true);
+      const startTime = new Date().getTime(); // get the current time when the button is clicked
+
       const urls = values;
       const detail = type;
-      console.log("detail", detail);
-      const responses: summaryArrayType[] = await callMyApi(urls, detail);
-      setSummaries(responses);
+      try {
+        //Catching any errors
+        const responses: summaryArrayType[] = await callMyApi(urls, detail);
+        setSummaries(responses);
+        setLoading(false);
+        const endTime = new Date().getTime(); // get the current time when the response is received
+        const elapsedTime = (endTime - startTime) / 1000;
+        setElapsedTime(Math.floor(elapsedTime));
+        // setTimeout(() => {
+        //   setElapsedTime(undefined);
+        // }, 10000);
+      } catch {
+        setLoading(false);
+        notify("failure");
+      }
     }
   };
 
@@ -59,22 +76,8 @@ export default function landing() {
     ) as HTMLElement;
     const text = element.innerText;
     navigator.clipboard.writeText(text);
-
     //Adding notification for successful copy
-
-    Store.addNotification({
-      title: "Copied!",
-      message: "Summary has been copied to your clipboard!! 📜",
-      type: "success",
-      insert: "top",
-      container: "top-right",
-      animationIn: ["animate__animated", "animate__fadeIn"],
-      animationOut: ["animate__animated", "animate__fadeOut"],
-      dismiss: {
-        duration: 5500,
-        onScreen: true,
-      },
-    });
+    notify("success");
   }
 
   return (
@@ -177,11 +180,16 @@ export default function landing() {
                   </p>
                 </div>
               </div>
+
               <p
                 className={styles.generateButton}
                 onClick={handleGenerateClick}
               >
-                Generate
+                {loading ? (
+                  <MoonLoader size={20} color={`white`} />
+                ) : (
+                  "Generate"
+                )}
               </p>
             </div>
           </div>
@@ -193,6 +201,7 @@ export default function landing() {
             >
               Back To Home
             </p>
+            {elapsedTime ? <p>Elapsed Time: {elapsedTime} seconds</p> : null}
             {summaries.map((eachVideo, index) => (
               <div id={`${styles.content}-${index}`}>
                 <ContentCopy
