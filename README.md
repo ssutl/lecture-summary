@@ -24,10 +24,11 @@ Fetch requeests are used in order to download the video from the provided video 
 
 # How to run application<br/>
 ### Setup
-1. Create an .env file in the root directory
-2. Add NEXT_PUBLIC_OPENAPI_KEY={Your OPENAI secret key} to the .env - This key can be generated through the OpenAI's developer accounts
-![image](https://user-images.githubusercontent.com/76885270/230964834-ee9ff900-50c8-4016-a6e1-27a852588c7a.png)
+1. Create an `.env.local` file in the root directory
+2. Add NEXT_PUBLIC_OPENAPI_KEY={Your OPENAI secret key} to the `.env.local` - This key can be generated through the OpenAI's developer accounts
+
+![image](https://user-images.githubusercontent.com/76885270/230969083-899859e9-b4b1-4007-93db-db632aa9a1b6.png)
 
 ### Frontend
-1. Run NPM I (to install needed dependencies)
-2. npm run dev
+1. `Run NPM I` (to install needed dependencies)
+2. `npm run dev`
