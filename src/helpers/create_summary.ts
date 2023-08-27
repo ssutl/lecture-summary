@@ -29,24 +29,18 @@ export default async function create_transcript(
   text: string,
   detail: "short" | "medium" | "in-depth"
 ) {
-  const content = `return the title (the main topic of the transcript or stated title) and summary of the transcript like this as a response: "1) insert title here 2) summary:insert summary here". For the summary, summarise this transcript: ${text}. Make the summary ${
-    detail === "short"
-      ? `short & concise (approximately 100 words)`
-      : detail === "medium"
-      ? `medium length, not too in-depth, just focusing on key details (approximately 250 to 300 words)`
-      : `in-depth, expanding upon key details (approximately 400 to a maximum of 550 words)`
-  }`;
-
   const payload = {
     model: "gpt-3.5-turbo",
     messages: [
       {
-        role: "system",
-        content: "You are a helpful assistant that summarizes text.",
-      },
-      {
         role: "user",
-        content: content,
+        content: `return the title (the main topic of the transcript or stated title) and summary of the transcript like this as a response: "1) insert title here 2) insert summary here". For the summary, summarise this transcript: ${text}. Make the summary ${
+          detail === "short"
+            ? `short & concise (approximately 100 words)`
+            : detail === "medium"
+            ? `medium length, not too in-depth, just focusing on key details (aproximately 250 to 300 words)`
+            : `in-depth, expanding upon key details (approximately 400 to a maximum of 550 words)`
+        }`,
       },
     ],
     temperature: 1.2,
@@ -57,15 +51,15 @@ export default async function create_transcript(
     n: 1,
   };
 
-  const apiUrl = "https://api.openai.com/v1/chat/completions";
-  const apiKey = process.env.NEXT_PUBLIC_OPENAPI_KEY;
-
   try {
-    const response = await axios.post(apiUrl, payload, {
+    const response: ChatCompletion = await axios({
+      method: "POST",
+      url: "https://api.openai.com/v1/chat/completions",
       headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${apiKey}`,
+        "Content-Type": `application/json`,
+        Authorization: `Bearer ${process.env.NEXT_PUBLIC_OPENAPI_KEY}`,
       },
+      data: JSON.stringify(payload),
     });
     const data = await response.data.choices[0].message.content;
     return data;
