@@ -1,0 +1,359 @@
+@import "../styles/Breakpoints.scss";
+
+.page {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  overflow-y: scroll;
+
+  .widthContainer {
+    display: flex;
+    flex-direction: column;
+    width: 85%;
+    position: relative;
+
+    @include breakpoint-mixin("laptop-small") {
+      width: 90%;
+    }
+
+    #HistoryIcon {
+      position: fixed;
+      bottom: 10px;
+      right: 7.5%;
+      cursor: pointer;
+      border-radius: 5px;
+      background-color: #6ca6c1;
+      box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+        rgba(0, 0, 0, 0.22) 0px 10px 10px;
+      padding: 3px;
+      font-size: 22px;
+      color: white;
+
+      @include breakpoint-mixin("laptop-small") {
+        right: 5%;
+      }
+
+      &:hover {
+        opacity: 0.6;
+        background-color: #263341;
+      }
+    }
+
+    .section1 {
+      // height: 50vh;
+      // min-height: 40vh;
+      padding: 30px 0px 30px 0px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+
+      @include breakpoint-mixin("desktop") {
+        padding: 60px 0px 60px 0px;
+      }
+
+      h1 {
+        font-weight: 500;
+        max-width: 80%;
+        font-size: 55px;
+        // background-color: orange;
+
+        span {
+          color: #6ca6c1;
+        }
+
+        @include breakpoint-mixin("laptop-small") {
+          max-width: 45%;
+          font-size: 70px;
+        }
+
+        @include breakpoint-mixin("desktop") {
+          // max-width: 40%;
+          font-size: 90px;
+        }
+      }
+    }
+
+    .section2 {
+      padding-bottom: 30px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      // background-color: #6CA6C1;
+
+      @include breakpoint-mixin("laptop-small") {
+        flex: 1;
+        padding: 0px;
+        flex-direction: row;
+      }
+
+      .inputHalf {
+        width: 100%;
+        height: fit-content;
+        display: flex;
+        flex-direction: column;
+        // justify-content: spac;
+        padding: 20px 0px 20px 0px;
+        // background-color: yellowgreen;
+
+        @include breakpoint-mixin("laptop-small") {
+          padding: 0px;
+          width: 50%;
+          height: 100%;
+        }
+
+        p {
+          cursor: pointer;
+        }
+
+        .inputHolder {
+          height: 65px;
+          width: 100%;
+          background-color: #6ca6c1;
+          border-radius: 5px;
+          display: flex;
+          justify-content: space-between;
+          color: white;
+          align-items: center;
+          box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+            rgba(0, 0, 0, 0.22) 0px 10px 10px;
+          margin-bottom: 20px;
+          transition: all ease-in 0.5s;
+
+          &:hover {
+            transform: scale(1.05);
+          }
+
+          @include breakpoint-mixin("laptop-small") {
+            // margin-bottom: 0px;
+            width: 70%;
+            // margin-top: 30px;
+          }
+
+          input {
+            width: 80%;
+            height: 100%;
+            border: none;
+            outline: none;
+            background-color: transparent;
+            color: white;
+            margin-left: 15px;
+          }
+
+          .icon {
+            cursor: pointer;
+            margin-right: 15px;
+            border-radius: 5px;
+
+            &:hover {
+              opacity: 0.6;
+              background-color: #263341;
+            }
+          }
+
+          input::placeholder {
+            /* Chrome, Firefox, Opera, Safari 10.1+ */
+            color: white;
+            opacity: 0.6; /* Firefox */
+          }
+        }
+      }
+
+      .generateHalf {
+        padding: 30px 0px 30px 0px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: space-evenly;
+        // background-color: red;
+
+        @include breakpoint-mixin("laptop-small") {
+          height: 100%;
+          width: 50%;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: flex-start;
+          padding: 0px;
+        }
+
+        .typeButton {
+          height: 65px;
+          width: 100%;
+          background-color: #6ca6c1;
+          box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+            rgba(0, 0, 0, 0.22) 0px 10px 10px;
+          border-radius: 5px;
+          color: white;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          margin-bottom: 30px;
+          transition: all ease-in 0.5s;
+
+          &:hover {
+            transform: scale(1.05);
+          }
+
+          @include breakpoint-mixin("laptop-small") {
+            width: 70%;
+            margin: 0px;
+          }
+
+          @include breakpoint-mixin("desktop") {
+            width: 65%;
+          }
+
+          .typeDescription {
+            height: 35%;
+            width: 100%;
+            display: flex;
+            font-size: 14px;
+            align-items: center;
+            justify-content: center;
+            // background-color: orange;
+          }
+
+          .typeOptions {
+            height: 65%;
+            width: 100%;
+            // background-color: aqua;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+
+            .option {
+              padding: 5px 15px 5px 15px;
+              // margin: 0px 10px 0px 10px;
+              border-radius: 5px;
+              height: fit-content;
+              cursor: pointer;
+
+              &:hover {
+                opacity: 0.6;
+                background-color: #263341;
+              }
+
+              @include breakpoint-mixin("desktop") {
+                padding: 5px 25px 5px 25px;
+              }
+            }
+
+            .active {
+              opacity: 0.6;
+              background-color: #263341;
+            }
+          }
+        }
+        .generateButton {
+          padding: 0px 20px 0px 20px;
+          background-color: #6ca6c1;
+          box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+            rgba(0, 0, 0, 0.22) 0px 10px 10px;
+          border-radius: 5px;
+          color: white;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 50px;
+          cursor: pointer;
+          transition: all ease-in 0.5s;
+
+          &:hover {
+            opacity: 0.6;
+            transform: scale(1.05);
+
+            // background-color: #263341;
+          }
+
+          @include breakpoint-mixin("laptop-small") {
+            height: 65px;
+          }
+
+          @include breakpoint-mixin("desktop") {
+            // margin-bottom: 0px;
+            padding: 0px 40px 0px 40px;
+            // margin-top: 30px;
+          }
+        }
+      }
+    }
+
+    .section3 {
+      height: fit-content;
+      // background-color: orange;
+
+      p {
+        margin-bottom: 40px;
+      }
+
+      .backHomeButton {
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+          rgba(0, 0, 0, 0.22) 0px 10px 10px;
+
+        padding: 0px 20px 0px 20px;
+        background-color: #6ca6c1;
+        border-radius: 5px;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 50px;
+        cursor: pointer;
+        width: fit-content;
+
+        &:hover {
+          opacity: 0.6;
+          // background-color: #263341;
+        }
+
+        @include breakpoint-mixin("laptop-small") {
+          height: 65px;
+        }
+      }
+
+      div {
+        margin-bottom: 40px;
+        position: relative;
+
+        h1 {
+          margin-bottom: 20px;
+        }
+
+        #copyIcon {
+          position: absolute;
+          display: inline-block;
+          top: 0px;
+          right: 30px;
+          cursor: pointer;
+        }
+
+        p {
+          font-size: 19px;
+          line-height: 28px;
+
+          @include breakpoint-mixin("laptop-small") {
+            font-size: 20px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.page::-webkit-scrollbar {
+  height: 100%;
+  width: 12px;
+}
+
+.page::-webkit-scrollbar-thumb {
+  background-color: rgba(70, 68, 68, 0.428);
+  border: 1px solid transparent;
+  background-clip: content-box;
+  border-radius: 10px;
+  height: 130px;
+}

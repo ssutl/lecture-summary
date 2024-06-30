@@ -1,0 +1,30 @@
+body {
+  @font-face {
+    font-family: "PrimaryFont";
+    src: url("../../public/Resources/primary.ttf") format("opentype");
+  }
+
+  background-color: #f0ead6;
+  // background-color: white;
+  margin: 0px;
+  padding: 0px;
+  font-family: "PrimaryFont";
+
+  h1 {
+    margin: 0px;
+    padding: 0px;
+  }
+  h2 {
+    margin: 0px;
+    padding: 0px;
+  }
+  h3 {
+    margin: 0px;
+    padding: 0px;
+  }
+
+  p {
+    margin: 0px;
+    padding: 0px;
+  }
+}

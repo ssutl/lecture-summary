@@ -1,0 +1,35 @@
+{
+  "name": "lecture-summary",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@emotion/css": "^11.10.6",
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "@mui/icons-material": "^5.11.11",
+    "@mui/material": "^5.11.14",
+    "@types/node": "18.15.9",
+    "@types/react": "18.0.29",
+    "@types/react-dom": "18.0.11",
+    "axios": "^1.3.4",
+    "dotenv": "^16.0.3",
+    "eslint": "8.36.0",
+    "eslint-config-next": "13.2.4",
+    "form-data": "^4.0.0",
+    "next": "13.2.4",
+    "node-fetch": "^3.3.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-notifications": "^1.7.4",
+    "react-notifications-component": "^4.0.1",
+    "react-spinners": "^0.13.8",
+    "sass": "^1.60.0",
+    "typescript": "5.0.2"
+  }
+}
