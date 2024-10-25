@@ -1,34 +1,39 @@
-# Lecture-summary (UOM Hackerthon)
-This was my project for manchester hack-a-bot 2023, which I ended up winning my project challenge for. Humbly, Subtly. The code is designed to summarise a video provided via a URL, specifically blackboard lectures. Students will be able to summarise lectures in different levels of detail using AI, which can greatly increase workflow and reduce risk of time wasted watching a lecture that contains information already learnt. 
+
+
+# 📘 Lecture Summary
+
+**Lecture Summary** automates transcription and summarization for lecture videos. Built during Manchester's Hack-a-Bot 2023, this tool uses OpenAI’s Whisper for transcription and GPT-3.5 for summaries, making it ideal for students looking to capture key lecture points quickly.
 
 ![image](https://user-images.githubusercontent.com/76885270/230965118-bbc7cb8e-41d8-4c2a-9e99-0a2fee1187a8.png)
 
-# Technologies Used
-### Frontend
+## 🛠️ Technologies Used
+
+### 🎨 Frontend
 1. Next.js
 2. Sass
 
+### 🧠 API
+1. OpenAI Whisper
+2. GPT-3.5
 
-### API
-1. Whisper-I OpenAI model
-2. GPT-3.5 OpenAI model
+## 🌟 Key Features
 
-# Features Implemented
-1. Transcribing videos
-2. Summarising transcription
-3. Local storage of current transcriptions
+1. Video Transcription
+2. Summarized Transcriptions
+3. Local Storage of Summaries
 
-# How it works
-Fetch requeests are used in order to download the video from the provided video URL, and these videos are saved locally. These files are then passed into OpenAI's whisper-1 model, which then transcribes the video. Then finally we use GPT-3.5 turbo in order to summarise the transcript. Depending on the the amount of inputs we will loop this process for each link.
+## 🚀 How it Works
 
+The app downloads a video from a URL, then transcribes it using Whisper. Finally, GPT-3.5 processes the transcription into a concise summary, repeating the process for each input URL as needed.
 
-# How to run application<br/>
-### Setup
-1. Create an `.env.local` file in the root directory
-2. Add NEXT_PUBLIC_OPENAPI_KEY={Your OPENAI secret key} to the `.env.local` - This key can be generated through the OpenAI's developer accounts
+## 🛠️ Setup
 
-![image](https://user-images.githubusercontent.com/76885270/230969083-899859e9-b4b1-4007-93db-db632aa9a1b6.png)
-
-### Frontend
-1. `Run NPM I` (to install needed dependencies)
-2. `npm run dev`
+1. Create an `.env.local` file:
+   ```plaintext
+   NEXT_PUBLIC_OPENAPI_KEY=YourOpenAIKey
+   ```
+2. Install dependencies and start:
+   ```bash
+   npm install
+   npm run dev
+   ```
